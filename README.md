@@ -1,4 +1,5 @@
 # Ledger_Generator  
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)  
 ## Requirements  
 The application reequires  
 - Python 3.6 or newer  
