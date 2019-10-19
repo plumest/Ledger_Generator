@@ -106,5 +106,4 @@ venv.bak/
 # my data
 .xlsx
 *.xlsx
-/customer
 .DS_Store
