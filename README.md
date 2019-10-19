@@ -1,5 +1,6 @@
 # Ledger_Generator  
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)  
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/plumest/Ledger_Generator/blob/master/LICENSE)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)  
 ## Requirements  
 The application reequires  
 - Python 3.6 or newer  
@@ -33,7 +34,7 @@ For Windows:
 For Mac/Linux:
     source venv/bin/activate
 ```
-PS. You can using ```deactivate``` command on you terminal to deactivate virtual environment.  
+> PS. You can using ```deactivate``` command on you terminal to deactivate virtual environment.  
 ### Step 5
 Install requirements. (make sure you activate virtual environment)    
 ```
