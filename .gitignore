@@ -107,3 +107,4 @@ venv.bak/
 .xlsx
 *.xlsx
 .DS_Store
+.vscode/
