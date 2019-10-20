@@ -1,14 +1,14 @@
+import math
 import openpyxl
-from random import randint
+from random import randint, sample
 
 def food(sep, oct):
-    expend = {'Food@KU': [30, 33, 35, 38, 39, 40, 45, 50, 55, 60],
-             'Food@Major': [19, 29, 39, 79, 109, 129, 130, 145, 249, 255, 260, 275, 279, 289, 299, 319, 320, 322, 349, 367, 389, 399, 450],
-             'Food@Central': [50, 55, 59, 60, 65, 69, 79, 109, 129, 130, 145, 249, 255, 260, 275, 279, 289, 299, 319, 320, 322, 349, 367, 389, 399, 450],
-             'Food@ThaMall': [50, 55, 59, 60, 65, 69, 79, 109, 129, 130, 145, 249, 255, 260, 275, 279, 289, 299, 319, 320, 322, 349, 367, 389, 399, 450],
-             'Food@7-11': [7, 10, 20, 29, 30, 39, 45, 50, 69, 79, 100, 120, 143, 159, 179, ],
-             'Food@Amonphan': [30, 33, 35, 38, 39, 40, 45, 50, 55, 60],
-             'Cafe': [19, 39, 40, 45, 50, 55, 60, 70, 79, 85, 90, 100, 105, 110, 115, 120, 125, 130, 135, 139, 145, 150, 180, 190],
+    expend = {'Food@KU': [80, 100, 120, 130, 150, 200],
+             'Food@Major': [260, 275, 279, 289, 299, 319, 320, 322, 349, 367, 389, 399, 450],
+             'Food@Central': [279, 289, 299, 319, 320, 322, 349, 367, 389, 399, 450],
+             'Food@ThaMall': [279, 289, 299, 319, 320, 322, 349, 367, 389, 399, 450],
+             'Food@7-11': [20, 30, 39, 45, 50, 69, 79, 100, 120, 143, 159, 179, 249, 300, 319, 320],
+             'Food@Amonphan': [80, 100, 120, 130, 150, 200],
              'Buffe': [199, 209, 269, 279, 289, 299, 349, 399, 499, 599, 699, 799, 899, 999, 1099, 1199, 1299, 1399, 1599],
              'SamSteak': [39, 79, 89, 109, 119, 129, 139, 239, 245]
         }
@@ -49,11 +49,27 @@ def enterainment(sep, oct):
              'Games': [129, 150, 199, 209, 300, 329, 399, 419, 450, 500, 790, 1000, 1200, 1290, 2000, 2590, 2990]
         }
 
-def other(sep, oct):
+def other(sheet, index):
     expend = {'Boots': [390, 790, 890, 1290, 1390, 1550, 1990, 2990, 3990, 4500, 4590, 4900, 5900, 6000, 6100, 7900, 8900, 9750],
              'Clothes': [69, 100, 120, 139, 159, 259, 300, 350, 400, 500, 790, 890, 1000, 1200, 1300, 1450, 1590, 1990, 2900],
              'Accessories': [39, 59, 79, 99, 390, 590, 790, 890, 1290, 1390, 2900, 3900, 4500, 4900, 5500, 6900]
         }
+    remaining = int(sheet[f'Q{index}'].internal_value)
+    price = math.inf
+    count = 0
+
+    while price > remaining:
+        pick_expend = sample(expend.items(), 1)[0]
+        item = pick_expend[0]
+        price = sample(pick_expend[1], 1)[0]
+        count += 1
+        if count == 4:
+            item = ''
+            price = 0
+
+    sheet[f'N{index}'] = item
+    sheet[f'O{index}'] = price
+
 
 def monthly(sep, oct):
     print('~~ Fill an interger!!!')
@@ -70,7 +86,7 @@ def monthly(sep, oct):
 customer_name = input("Enter your name (without any special character or space): ")
 file_path = f"customer/{customer_name}.xlsx"
 
-wb = openpyxl.load_workbook('prototype.xlsx')
+wb = openpyxl.load_workbook('prototype.xlsx', data_only=True)
 
 # ws for September sheet
 ws = wb.active
@@ -79,7 +95,15 @@ wb.active = 2
 # wo for October sheet
 wo = wb.active
 
-monthly(ws, wo)
+# Salary
+salary = int(input('Enter your salary: '))
+ws['C5'] = salary
+wo['C5'] = salary
+
+for i in range(5, 35):
+    other(ws, i)
+
+# monthly(ws, wo)
 
 # Save file
 wb.save(file_path)
