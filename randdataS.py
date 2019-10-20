@@ -10,7 +10,7 @@ def food(sheet, index):
              'Food@Amonphan': [100, 120, 130, 150, 200],
              'Buffe': [279, 289, 299, 349, 399, 499, 599, 699, 799, 899, 999, 1099, 1199, 1299, 1399, 1599],
         }
-    remaining = int(sheet[f'Q{index}'].internal_value)
+    remaining = int(sheet[f'C5'].value * 0.05) 
     price = math.inf
     count = 0
 
@@ -37,7 +37,7 @@ def travel(sheet, index):
              'MRT': [21, 25, 32, 42],
              'Taxi': [30, 40, 50, 70, 107, 200, 210, 250, 300]
         }
-    remaining = int(sheet[f'Q{index}'].internal_value)
+    remaining = int(sheet[f'C5'].value * 0.05)
     price = math.inf
     count = 0
 
@@ -58,7 +58,7 @@ def education(sheet, index):
              'Courses': [300, 360, 390, 450, 500, 550, 790, 1290, 1590, 3990],
              'Stationary': [5, 7, 10, 39, 55, 69, 79, 89, 99, 109, 120, 129, 139, 249, 349, 769],
         }
-    remaining = int(sheet[f'Q{index}'].internal_value)
+    remaining = int(sheet[f'C5'].value * 0.05)
     price = math.inf
     count = 0
 
@@ -85,7 +85,7 @@ def personal(sheet, index, gender):
         expend = {'Haircut': [150, 200, 300, 500, 1000, 1500, 2000, 3000, 4000],
 
         }
-    remaining = int(sheet[f'Q{index}'].internal_value)
+    remaining = int(sheet[f'C5'].value * 0.05)
     price = math.inf
     count = 0
 
@@ -106,7 +106,7 @@ def enterainment(sheet, index):
              'Concert': [390, 490, 590, 790, 1000, 1200, 1500, 2000, 2900, 3000, 3500, 3900, 4500, 5500, 6500],
              'Games': [129, 150, 199, 209, 300, 329, 399, 419, 450, 500, 790, 1000, 1200, 1290, 2000, 2590, 2990]
         }
-    remaining = int(sheet[f'Q{index}'].internal_value)
+    remaining = int(sheet[f'C5'].value * 0.05)
     price = math.inf
     count = 0
 
@@ -127,7 +127,7 @@ def other(sheet, index):
              'Clothes': [69, 100, 120, 139, 159, 259, 300, 350, 400, 500, 790, 890, 1000, 1200, 1300, 1450, 1590, 1990, 2900],
              'Accessories': [39, 59, 79, 99, 390, 590, 790, 890, 1290, 1390, 2900, 3900, 4500, 4900, 5500, 6900]
         }
-    remaining = int(sheet[f'Q{index}'].internal_value)
+    remaining = int(sheet[f'C5'].value * 0.05)
     price = math.inf
     count = 0
 
@@ -148,3 +148,4 @@ def monthly(sheet, rent, net, utility):
     sheet['P39'] = rent
     sheet['P40'] = net
     sheet['P41'] = randint(utility-100, utility+100)
+
