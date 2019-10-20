@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)  
 ## Requirements  
 The application reequires  
-- Python 3.6 or newer  
+- Python 3.8 or newer  
 - Python add-on modules as in [requirements.txt](requirements.txt)  
   
 ## Installation  
