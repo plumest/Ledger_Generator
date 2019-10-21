@@ -63,7 +63,7 @@ wb.save(file_path)
 # wo for October sheet
 wbb = openpyxl.load_workbook(file_path)
 wbb.active = 2
-wo = wb.active
+wo = wbb.active
 
 # Mock Oct
 wo['C5'] = salary
